@@ -79,26 +79,73 @@ Das **Cafeteria Management System** ist eine vollständige Anwendung, die spezie
    spring.datasource.username=<USERNAME>
    spring.datasource.password=<PASSWORD>
    spring.jpa.hibernate.ddl-auto=update
-2. ## MQTT konfigurieren
+2. **MQTT konfigurieren**:
 
 Ergänzen Sie die Konfiguration in `application.properties`:
-
 ```properties
-mqtt.url=mqtt://<BROKER_URL>:1883
-mqtt.clientIdPublisher=clientIdPublisher
-mqtt.clientIdSubscriber=clientIdSubscriber
-mqtt.topic=inventory/update
-3. ## Abhängigkeiten installieren
+    mqtt.url=mqtt://<BROKER_URL>:1883
+    mqtt.clientIdPublisher=clientIdPublisher
+    mqtt.clientIdSubscriber=clientIdSubscriber
+    mqtt.topic=inventory/update
+```
+3. **Abhängigkeiten installieren**:
 
 Führen Sie den folgenden Befehl aus:
 
 ```bash
 mvn clean install
-
-
-4. ## Projekt starten
+```
+4.  **Projekt starten**:
 
 Starten Sie die Anwendung mit:
 
 ```bash
 mvn spring-boot:run
+```
+## API-Endpunkte
+
+### Produktmanagement
+
+- **GET** `/api/products`: Listet alle Produkte auf.
+- **POST** `/api/products`: Fügt ein neues Produkt hinzu.
+- **PUT** `/api/products/{id}`: Aktualisiert ein bestehendes Produkt.
+- **DELETE** `/api/products/{id}`: Löscht ein Produkt.
+
+### Bestellverwaltung
+
+- **GET** `/api/orders`: Listet alle Bestellungen auf.
+- **POST** `/api/orders`: Erstellt eine neue Bestellung.
+
+## Beispiel-MQTT-Nachrichten (JSON)
+
+1. **Neues Produkt hinzufügen**:
+```json
+{
+    "action": "addProduct",
+    "product": {
+        "id": 101,
+        "name": "Kaffee",
+        "price": 2.5,
+        "description": "Frisch gebrühter Kaffee",
+        "category": "Getränke",
+        "state": "Available"
+    }
+}
+```
+2. **Bestandsaktualisierung**:
+```json
+{
+    "action": "updateStock",
+    "productId": 101,
+    "newStock": 50
+}
+
+```
+3. **Produktstatus ändern**:
+```json
+{
+    "action": "changeState",
+    "productId": 101,
+    "newState": "Out_of_Stock"
+}
+```
