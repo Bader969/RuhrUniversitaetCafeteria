@@ -79,7 +79,7 @@ Das **Cafeteria Management System** ist eine vollständige Anwendung, die spezie
    spring.datasource.username=<USERNAME>
    spring.datasource.password=<PASSWORD>
    spring.jpa.hibernate.ddl-auto=update
-## MQTT konfigurieren
+2. ## MQTT konfigurieren
 
 Ergänzen Sie die Konfiguration in `application.properties`:
 
@@ -88,3 +88,17 @@ mqtt.url=mqtt://<BROKER_URL>:1883
 mqtt.clientIdPublisher=clientIdPublisher
 mqtt.clientIdSubscriber=clientIdSubscriber
 mqtt.topic=inventory/update
+3. ## Abhängigkeiten installieren
+
+Führen Sie den folgenden Befehl aus:
+
+```bash
+mvn clean install
+
+
+4. ## Projekt starten
+
+Starten Sie die Anwendung mit:
+
+```bash
+mvn spring-boot:run
