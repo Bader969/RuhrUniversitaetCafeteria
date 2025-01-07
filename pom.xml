@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.universitatsklinikum</groupId>
-	<artifactId>Cafeteria</artifactId>
+	<artifactId>RuhrUniversitaetCafeteria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Cafeteria</name>
 	<description>cafeteria project for Spring Boot</description>
