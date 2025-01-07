@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willkommen</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Willkommen zur Cafeteria-Anwendung</h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/menu}">Menü</a></li>
+            <li><a th:href="@{/cart}">Warenkorb</a></li>
+            <li><a th:href="@{/payment}">Zahlung</a></li>
+            <li><a th:href="@{/logout}">Abmelden</a></li>
+        </ul>
+    </nav>
+    <div class="dashboard">
+        <a th:href="@{/menu}" class="button">Zum Menü</a>
+        <a th:href="@{/cart}" class="button">Zum Warenkorb</a>
+        <a th:href="@{/payment}" class="button">Zur Zahlung</a>
+    </div>
+</div>
+</body>
+</html>
